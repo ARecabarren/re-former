@@ -1,21 +1,13 @@
-<!-- # New user form built without rails helpers -->
-<form action='/users' method ="post" accept-charset="UTF-8">
-    <!-- # Rails expects a hidden input with the name of the authenticity token -->
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<%= form_tag('/users', method:'post') do %>
+    <%= label_tag(:username, "Username:") %>
+    <%= text_field_tag(:username) %>
 
-    <label for="username">Username:</label>
-    <input type="text" name="user[username]" id="username">
+    <%= label_tag(:email, "Email:") %>
+    <%= email_field_tag(:email) %>
 
-    <label for="email">Email:</label>
-    <input type="email" name="user[email]" id="email">
+    <%= label_tag(:password, "Password:") %>
+    <%= password_field_tag(:password) %>
 
-    <label for="password">Password:</label>
-    <input type="password" name="user[password]" id="password">
+    <%= submit_tag("Create User") %>
 
-    <%# <label for="password_confirmation">Password Confirmation:</label>
-    <input type="password" name="user[password_confirmation]" id="password_confirmation"> %>
-
-    <input type="submit" value="Create User">
-</form>
-
-
+<%end%>

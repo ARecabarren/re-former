@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
     # params = {"authenticity_token"=>"[FILTERED]", "user"=>{"username"=>"", "email"=>"", "password"=>"[FILTERED]"}
     def new
-        
+        @user = User.new
     end
 
     def create
@@ -9,8 +9,6 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to new_user_path
         else
-            # Display the 422 status code, which means unprocessable entity
-            puts '422 unprocessable entity'
             render :new
         end
     end

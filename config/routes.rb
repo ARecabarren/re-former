@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  # Create :users resource with :only option, specify :new and :create actions
-  resources :users, only: [:new, :create]
+  # Create :users resource with :only option, specify :new, :create and :edit actions
+  resources :users, only: [:new, :create, :edit, :update]
 end
